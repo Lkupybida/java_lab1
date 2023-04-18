@@ -2,10 +2,17 @@ package ua.lviv.iot.algo.part1.lamp;
 
 import lombok.Getter;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 @Getter
 public class Candle extends Light {
+    private String fetus;
+    private int length;
 
 
+
+private static boolean headerWritten = false;
     private final static Candle defaultCandle = new Candle();
 
     public Candle(String producer, int workTimeInMinutes) {
@@ -41,5 +48,32 @@ public class Candle extends Light {
         }
         return defaultCandle;
     }
+
+    public String getHeaders() {
+        return super.getHeaders()+","
+                +"fetus"+","
+                +"length";
+    }
+
+    public String toCSV() {
+        return super.toCSV()+","
+                +fetus+","
+                +length;
+    }
+
+    public static void writeHeader(BufferedWriter writer) throws IOException {
+        if (!headerWritten) {
+            writer.write(new Candle().getHeaders());
+            writer.newLine();
+            headerWritten = true;
+        }
+    }
+
+    public void write(BufferedWriter writer) throws IOException {
+        writeHeader(writer);
+        writer.write(this.toCSV());
+        writer.newLine();
+    }
+
 
 }
