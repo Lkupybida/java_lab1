@@ -14,4 +14,12 @@ abstract class Light {
         return producer;
     }
 
+    public String getHeaders() {
+        return "producer"+","+"workTimeInMinutes";
+    }
+
+    public String toCSV() {
+        return producer+","+workTimeInMinutes;
+    }
+
 }

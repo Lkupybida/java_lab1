@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SearchlightTest {
+    Searchlight searchlight = new Searchlight();
     @Test
     void testBrightness() {
         Searchlight searchlight = new Searchlight();
@@ -13,7 +14,9 @@ public class SearchlightTest {
         int expectedAltitude = 0;
         int actualAltitude = searchlight.getWorkTimeInMinutes();
         assertEquals(expectedAltitude, actualAltitude);
-
+    }
+    @Test
+    void testBrightness1() {
         searchlight.brightness(100);
         int expectedAltitude1 = 0;
         int actualAltitude1 = searchlight.getWorkTimeInMinutes();

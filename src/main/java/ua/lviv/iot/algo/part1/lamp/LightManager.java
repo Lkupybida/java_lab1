@@ -1,6 +1,12 @@
 package ua.lviv.iot.algo.part1.lamp;
 
-/*
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.LinkedList;
+import java.util.List;
+
 @Getter
 @Setter
 public class LightManager {
@@ -42,11 +48,9 @@ public class LightManager {
     }
 
 
-    public static List<Light> getList() {
-        return list;
-    }
+
 }
 
- */
+
 
 
